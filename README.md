@@ -6,12 +6,12 @@ Linux Bus checker is Demo Software that can show the available bus list, reserve
 and also can automatically sleep if none of the inputs are given.
 
 # What functions this program can do?
-## functional list
+## functional operations
 
 1. show the current available bus list.
 2. reserve tickets, if reserved tickets are sold out, print text that you cannot buy the ticket anymore.
 
-## non-functional list
+## non-functional operations
 
 1. if none of the inputs are given, turn the program's sleep mode on (Timer Signal)
 - If Sleep Mode, clear all console, Show Command. If input comes, then Execute the command.

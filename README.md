@@ -1,5 +1,4 @@
 # Linux-Bus-Checker
-===================
 An College Project worked by individual 
 
 # What is Linux Bus Checker?

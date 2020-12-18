@@ -21,6 +21,7 @@ and also can automatically sleep if none of the inputs are given.
 - =  1. Show Current Time : Press s =
 - =  2. Show Bus List : Press l     =
 - =  3. Turn Reserve Mode : Press r =
+- =  4. Quit : Press q =
 - =================================== ( n sec left)
 :
 

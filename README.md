@@ -5,7 +5,7 @@ An College Project worked by individual for System Programming
 Linux Bus checker is Demo Software that can show the available bus list, reserve bus tickets by maximum People Number
 and also can automatically sleep if none of the inputs are given.
 
-# What are the function can this program do?
+# What functions this program can do?
 ## functional list
 
 1. show the current available bus list.

@@ -1,0 +1,6 @@
+#define LINE1 "========Please Input command========"
+#define LINE2 "=  1. Show Current Time : Press s  ="
+#define LINE3 "=  2. Show Bus List :     Press l  ="
+#define LINE4 "=  3. Turn Reserve Mode : Press r  ="
+#define LINE5 "=  4. Quit :              Press q  ="
+#define LINE6 "===================================="

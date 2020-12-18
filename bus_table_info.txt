@@ -1,0 +1,8 @@
+ctime bushead reserved_tickets max_tickets
+
+ctime compare
+
+: compare year first
+: if year same, compare Month next
+: if month same, cmpare date next
+: if date same, cmpare time next by minutes (you can't get on bus by second!)

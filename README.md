@@ -1,5 +1,5 @@
 # Linux-Bus-Checker
-An College Project worked by individual 
+An College Project worked by individual for System Programming
 
 # What is Linux Bus Checker?
 Linux Bus checker is Demo Software that can show the available bus list, reserve bus tickets by maximum People Number

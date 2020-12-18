@@ -1,2 +1,2 @@
 # Linux-Bus-Checker
-An College Project by individual 
+An College Project worked by individual 

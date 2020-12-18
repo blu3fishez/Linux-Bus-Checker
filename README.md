@@ -16,6 +16,5 @@ and also can automatically sleep if none of the inputs are given.
 
 1. if none of the inputs are given, turn the program's sleep mode on
 2. used ncurses library so that I can offer more simple Terminal UI
-3. Uses Multiple Processes
-- are consisted of System.exe and Execute.exe
+3. Uses Multiple Processes that are consisted of System.exe and Execute.exe
 4. Show the current time by socket programming

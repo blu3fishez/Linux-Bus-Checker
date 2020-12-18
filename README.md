@@ -14,8 +14,8 @@ and also can automatically sleep if none of the inputs are given.
 ## non-functional list
 
 1. if none of the inputs are given, turn the program's sleep mode on (Timer Signal)
-- If Sleep Mode, Run Clear & Wait Forever.
-- If NOT Sleepmode, Clear & Show Command List Per 1 sec with left time.
+- If Sleep Mode, clear all console, Show Command. If input comes, then Execute the command.
+- If NOT Sleepmode, Wait For 10 sec
 - ex)
 - =======Please Input command========
 - =  1. Show Current Time : Press s =

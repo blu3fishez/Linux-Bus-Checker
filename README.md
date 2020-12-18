@@ -17,11 +17,11 @@ and also can automatically sleep if none of the inputs are given.
 - If Sleep Mode, Run Clear & Wait Forever.
 - If NOT Sleepmode, Clear & Show Command List Per 1 sec with left time.
 - ex)
-=======Please Input command========
-=  1. Show Current Time : Press s =
-=  2. Show Bus List : Press l     =
-=  3. Turn Reserve Mode : Press r =
-=================================== ( n sec left)
+- =======Please Input command========
+- =  1. Show Current Time : Press s =
+- =  2. Show Bus List : Press l     =
+- =  3. Turn Reserve Mode : Press r =
+- =================================== ( n sec left)
 :
 
 2. Uses Multiple Processes that are consisted of System.exe and Execute.exe (Fork)

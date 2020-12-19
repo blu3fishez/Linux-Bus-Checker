@@ -48,7 +48,7 @@ int main(int ac, char* av[]){
         curtime = time(NULL);
 
         fprintf(sock_fp, "The Current Time : ");
-        fprintf(sock_fp, "%s\n", ctime(&curtime));
+        fprintf(sock_fp, "%s", ctime(&curtime));
         fclose(sock_fp);
     }
 }

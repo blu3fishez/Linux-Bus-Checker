@@ -37,14 +37,20 @@ int main(){
 
 void on_input(int signum){
     int c = getch();
-    /*
+    if(c == EOF && sleepmode) fflush(stdout);
     if(c != EOF && sleepmode){
+        void on_timer(int);
         // show the menu and wake up
-        
+        printf("%s", LINE1);
+        printf("%s", LINE2);
+        printf("%s", LINE3);
+        printf("%s", LINE4);
+        printf("%s", LINE5);
+        printf("%s", LINE6);
+        signal(SIGALRM, on_timer);
         sleepmode = 0;
         set_ticker(10000);
     }
-    */
     int pid;
     if(c == 'q'){
         done = 1;
@@ -54,10 +60,11 @@ void on_input(int signum){
         set_ticker(0);
         pid = fork();
         if(pid == 0){
-            execl("./client", "./client", "localhost", "5500", NULL);
+            execl("./client", "./client", "127.0.1.1", "5500", NULL);
         }
         else wait(&pid);
         set_ticker(10000);
+        printf("%s", NEXTCMD);
     }
     else if(c == 'l'){
         // fork, exelp 
@@ -71,21 +78,27 @@ void on_input(int signum){
     }
     else if(c == 'r'){ // reserve
         set_ticker(0);
+        enable_kbd_signals(0);
         pid = fork();
         if(pid == 0){
             execl("./execute", "./execute", "reserve", NULL);
         }
         else wait(&pid);
         set_ticker(10000);
+        enable_kbd_signals(1);
     }
 }
 
 void on_timer(int signum){
-    // set_ticker(0);
     // if the program receives timer signal,
     // the program discards all of the data and
     // turn the sleep mode on
     // sleepmode? clear all of screen and wait for the input.
+    signal(SIGALRM, SIG_IGN);
+    set_ticker(0);
+    sleepmode = 1;
+    printf("\e[1;1H\e[2J");
+    fflush(stdout);
 }
 
 void enable_kbd_signals(int mode){

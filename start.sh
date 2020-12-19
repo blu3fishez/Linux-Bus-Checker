@@ -8,5 +8,5 @@ make all
 
 # kill server
 SYSPROGSERVER=$(pgrep server)
-kill SYSPROGSERVER
+kill $SYSPROGSERVER
 unset SYSPROGSERVER

@@ -4,11 +4,6 @@
 // date 2020-12-1-4:13am
 
 #include"basiclib.h"
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
-#include<netdb.h>
-#include<strings.h>
 #define DebugLog(msg) {perror(msg); exit(1);}
 
 int main(int ac, char* av[]){

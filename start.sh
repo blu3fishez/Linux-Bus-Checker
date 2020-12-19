@@ -4,6 +4,7 @@ make all
 ./server&
 # uses port 5500 / 127.0.0.1 host
 # run system
+./program
 
 # kill server
 SYSPROGSERVER=$(pgrep server)

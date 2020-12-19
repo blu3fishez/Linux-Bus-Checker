@@ -1,10 +1,13 @@
-all : server client program showtime reserve
-program : system.c
-	cc -o program system.c
-showtime : showtime.c
-	cc -o showtime showtime.c
-reserve : reserve.c
-	cc -o reserve reserve.c
+all : program execute client server
+remove :
+	rm program
+	rm execute
+	rm client
+	rm server
+program : system.c set_ticker.c getch.c
+	cc -o program system.c set_ticker.c getch.c
+execute : execute.c
+	cc -o execute execute.c
 client : client.c
 	cc -o client client.c
 server : server.c

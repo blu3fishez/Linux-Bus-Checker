@@ -4,12 +4,6 @@
 // This Code refered to Chapter 11. socket, Timeclinet.c
 
 #include"basiclib.h"
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
-#include<netdb.h>
-#include<time.h>
-#include<strings.h>
 #define PORTNUM 5500
 #define HOSTLEN 256
 #define DebugLog(msg) {perror(msg); exit(1);}
@@ -27,18 +21,23 @@ int main(int ac, char* av[]){
     // socket procedure
     // 1. ask kernel for a socket
     sock_id = socket(PF_INET, SOCK_STREAM, 0);
-    if(sock_id == -1) DebugLog("asking to kernal for a socket");
+    if(sock_id == -1)
+        DebugLog("asking to kernal for a socket");
     // 2. bind addres to socket
-    bzreo((void*)&saddr, sizeof(saddr));
+    bzero((void*)&saddr, sizeof(saddr));
     gethostname(hostname, HOSTLEN);
     hostptr = gethostbyname(hostname);
     bcopy((void*)hostptr->h_addr, (void*)&saddr.sin_addr, hostptr->h_length);
 
     saddr.sin_port = htons(PORTNUM);
     saddr.sin_family = AF_INET;
+
+    if(bind(sock_id, (struct sockaddr*)&saddr, sizeof(saddr)) != 0)
+        DebugLog("binding error");
     // 3. allow incoming calls with Qsize =  1 on socket
     if(listen(sock_id, 1) != 0)
         DebugLog("listening PORT");
+
     while(1){
         sock_fd = accept(sock_id, NULL, NULL);
         if(sock_fd == -1)
@@ -49,7 +48,7 @@ int main(int ac, char* av[]){
         curtime = time(NULL);
 
         fprintf(sock_fp, "The Current Time : ");
-        fprintf(sock_fp, "%s", ctime(&curtime));
+        fprintf(sock_fp, "%s\n", ctime(&curtime));
         fclose(sock_fp);
     }
 }

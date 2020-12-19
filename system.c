@@ -22,6 +22,7 @@ int main(){
     void on_input(int);
     enable_kbd_signals(1);
     signal(SIGIO, on_input);
+    signal(SIGALRM, on_timer);
     set_ticker(10000);
     printf("%s", LINE1);
     printf("%s", LINE2);
@@ -89,8 +90,10 @@ void on_timer(int signum){
 
 void enable_kbd_signals(int mode){
     static int orig_flags;
+    static struct termios orig_ttystate;
     static int stored = 0;
     int fd_flags;
+    struct termios ttystate;
     if(mode == 1){ // 1 : set
         fcntl(0, F_SETOWN, getpid());
         fd_flags = fcntl(0, F_GETFL);
@@ -98,9 +101,19 @@ void enable_kbd_signals(int mode){
         fd_flags |= O_ASYNC;
         fd_flags |= O_NDELAY;
         fcntl(0, F_SETFL, fd_flags);
+
+        // you should turn on in the reservation stage
+        tcgetattr(0, &ttystate);
+        tcgetattr(0, &orig_ttystate);
+        ttystate.c_lflag &= ~ICANON;
+        ttystate.c_lflag &= ~ECHO;
+        ttystate.c_cc[VMIN] = 1; // per 1 char
+        tcsetattr(0, TCSANOW, &ttystate);
+
         stored = 1;
     }
     if(mode == 0 && stored){ // 0 : restore
         fcntl(0, F_SETFL, orig_flags);
+        tcsetattr(0, TCSANOW, &orig_ttystate);
     }
 }
